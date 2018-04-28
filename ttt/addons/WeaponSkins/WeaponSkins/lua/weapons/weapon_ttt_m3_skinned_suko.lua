@@ -1,50 +1,50 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType			= "shotgun"
+local BASE = weapons.GetStored( "weapon_ttt_m3" )
+
+SWEP.HoldType					= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName = "Suko's Chimichotgun"
-
-   SWEP.Slot = 2
-   SWEP.Icon = "vgui/ttt/icon_m3s90"
-   SWEP.IconLetter = "B"
+   SWEP.PrintName 				= "Suko's Chimichotgun"
+   SWEP.Slot 					= BASE.Slot
+   SWEP.Icon 					= BASE.Icon
+   SWEP.IconLetter 				= BASE.IconLetter
 end
 
 
-SWEP.Base				= "weapon_tttbase"
-SWEP.Spawnable = true
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_m3_suko"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_m3_suko"
+SWEP.Base						= BASE.Base
+SWEP.Spawnable 					= true
+SWEP.Skin 						= "drunkent/tttweaponskins/v_models/skin_m3_suko"
+SWEP.World 						= "drunkent/tttweaponskins/w_models/w_skin_m3_suko"
 
-SWEP.Kind = WEAPON_HEAVY
-SWEP.WeaponID = AMMO_SHOTGUN
+SWEP.Kind 						= BASE.Kind
+SWEP.WeaponID 					= BASE.WeaponID
 
-local main = weapons.Get( "weapon_ttt_m3" )
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.Primary.Damage = 35
-SWEP.Primary.Cone = 0.02
-SWEP.Primary.Delay = main.Primary.Delay
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.NumShots = 1
-SWEP.AutoSpawnable      = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Ammo 				= BASE.Primary.Ammo
+SWEP.Primary.Damage 			= 35
+SWEP.Primary.Cone 				= 0.02
+SWEP.Primary.Delay 				= BASE.Primary.Delay
+SWEP.Primary.ClipSize 			= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 			= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip	 	= BASE.Primary.DefaultClip
+SWEP.Primary.Automatic 			= BASE.Primary.Automatic
+SWEP.Primary.NumShots 			= 1
+SWEP.AutoSpawnable      		= false
+SWEP.AmmoEnt 					= BASE.AmmoEnt
 
-SWEP.HeadshotMultiplier = 5
+SWEP.HeadshotMultiplier 		= 5
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 54
-SWEP.ViewModel			= "models/weapons/cstrike/c_shot_m3super90.mdl"
-SWEP.WorldModel			= "models/weapons/w_shot_m3super90.mdl"
-SWEP.Primary.Sound			= Sound( "Weapon_M3.Single" )
-SWEP.Primary.Recoil			= 7
+SWEP.UseHands					= BASE.UseHands
+SWEP.ViewModelFlip				= BASE.ViewModelFlip
+SWEP.ViewModelFOV				= BASE.ViewModelFOV
+SWEP.ViewModel					= "models/weapons/cstrike/c_shot_m3super90.mdl"
+SWEP.WorldModel					= "models/weapons/w_shot_m3super90.mdl"
+SWEP.Primary.Sound				= BASE.Primary.Sound
+SWEP.Primary.Recoil				= BASE.Primary.Recoil
 
-SWEP.IronSightsPos = Vector( -2, 5, 2.14 )
-SWEP.IronSightsAng = Vector(0, 0.8, 0)
+SWEP.IronSightsPos 				= BASE.IronSightsPos
+SWEP.IronSightsAng 				= BASE.IronSightsAng
 
 SWEP.reloadtimer = 0
 

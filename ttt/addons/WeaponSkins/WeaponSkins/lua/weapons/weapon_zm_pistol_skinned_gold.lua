@@ -1,47 +1,47 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType = "pistol"
+local BASE = weapons.GetStored( "weapon_zm_pistol" )
+
+SWEP.HoldType 				= BASE.HoldType
 
 
 if CLIENT then
-   SWEP.PrintName = "Five-SeveN | Gold"
-   SWEP.Slot = 1
-
-   SWEP.Icon = "vgui/ttt/icon_pistol"
-   SWEP.IconLetter = "u"
+   SWEP.PrintName 			= BASE.PrintName .. " | Gold"
+   SWEP.Slot 				= BASE.Slot
+   SWEP.Icon 				= BASE.Icon
+   SWEP.IconLetter 			= BASE.IconLetter
 end
 
-SWEP.Kind = WEAPON_PISTOL
-SWEP.WeaponID = AMMO_PISTOL
+SWEP.Kind 					= BASE.Kind
+SWEP.WeaponID 				= BASE.WeaponID
 
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_fiveseven_gold"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_fiveseven_gold"
+SWEP.Skin 					= "drunkent/tttweaponskins/v_models/skin_fiveseven_gold"
+SWEP.World 					= "drunkent/tttweaponskins/w_models/w_skin_fiveseven_gold"
 
 SWEP.Base = "weapon_tttbase"
 
-local main = weapons.Get( "weapon_zm_pistol" )
-SWEP.Primary.Recoil	= main.Primary.Recoil
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Delay = main.Primary.Delay
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.AutoSpawnable = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Recoil			= BASE.Primary.Recoil
+SWEP.Primary.Damage 		= BASE.Primary.Damage
+SWEP.Primary.Delay 			= BASE.Primary.Delay
+SWEP.Primary.Cone 			= BASE.Primary.Cone
+SWEP.Primary.ClipSize 		= BASE.Primary.ClipSize
+SWEP.Primary.Automatic 		= BASE.Primary.Automatic
+SWEP.Primary.DefaultClip 	= BASE.Primary.DefaultClip
+SWEP.Primary.ClipMax		= BASE.Primary.ClipMax
+SWEP.Primary.Ammo 			= BASE.Primary.Ammo
+SWEP.AutoSpawnable 			= false
+SWEP.AmmoEnt 				= BASE.AmmoEnt
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 54
-SWEP.ViewModel  = "models/weapons/cstrike/c_pist_fiveseven.mdl"
-SWEP.WorldModel = "models/weapons/w_pist_fiveseven.mdl"
+SWEP.UseHands				= BASE.UseHands
+SWEP.ViewModelFlip			= BASE.ViewModelFlip
+SWEP.ViewModelFOV			= BASE.ViewModelFOV
+SWEP.ViewModel  			= "models/weapons/cstrike/c_pist_fiveseven.mdl"
+SWEP.WorldModel 			= "models/weapons/w_pist_fiveseven.mdl"
 
-SWEP.Primary.Sound = Sound( "Weapon_FiveSeven.Single" )
-SWEP.IronSightsPos = Vector(-5.95, -4, 2.799)
-SWEP.IronSightsAng = Vector(0, 0, 0)
+SWEP.Primary.Sound 			= BASE.Primary.Sound
+SWEP.IronSightsPos 			= BASE.IronSightsPos
+SWEP.IronSightsAng 			= BASE.IronSightsAng
 
 -- WeaponSkins
 

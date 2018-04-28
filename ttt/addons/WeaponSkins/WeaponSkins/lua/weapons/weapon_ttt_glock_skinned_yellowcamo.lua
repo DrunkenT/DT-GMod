@@ -1,47 +1,47 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType = "pistol"
+local BASE						= weapons.GetStored( "weapon_ttt_glock" )
+
+SWEP.HoldType					= BASE.HoldType
 
 
 if CLIENT then
-   SWEP.PrintName = "Glock | Yellow Camo"
-   SWEP.Slot = 1
-
-   SWEP.Icon = "vgui/ttt/icon_glock"
-   SWEP.IconLetter = "c"
+   SWEP.PrintName 				= BASE.PrintName .. " | Yellow Camo"
+   SWEP.Slot 					= BASE.Slot
+   SWEP.Icon					= BASE.Icon
+   SWEP.IconLetter				= BASE.IconLetter
 end
 
-SWEP.Kind = WEAPON_PISTOL
-SWEP.WeaponID = AMMO_GLOCK
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_glock_yellowc"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_glock_yellowc"
+SWEP.Kind 						= BASE.Kind
+SWEP.WeaponID					= BASE.WeaponID
+SWEP.Skin 						= "drunkent/tttweaponskins/v_models/skin_glock_yellowc"
+SWEP.World 						= "drunkent/tttweaponskins/w_models/w_skin_glock_yellowc"
 
-SWEP.Base = "weapon_tttbase"
+SWEP.Base						= BASE.Base
 
-local main = weapons.Get( "weapon_ttt_glock" )
-SWEP.Primary.Recoil	= main.Primary.Recoil
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Delay = main.Primary.Delay
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.AutoSpawnable = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Recoil				= BASE.Primary.Recoil
+SWEP.Primary.Damage 			= BASE.Primary.Damage
+SWEP.Primary.Delay 				= BASE.Primary.Delay
+SWEP.Primary.Cone 				= BASE.Primary.Cone
+SWEP.Primary.ClipSize 			= BASE.Primary.ClipSize
+SWEP.Primary.Automatic 			= BASE.Primary.Automatic
+SWEP.Primary.DefaultClip 		= BASE.Primary.DefaultClip
+SWEP.Primary.ClipMax 			= BASE.Primary.ClipMax
+SWEP.Primary.Ammo 				= BASE.Primary.Ammo
+SWEP.AutoSpawnable 				= false
+SWEP.AmmoEnt 					= BASE.AmmoEnt
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 54
-SWEP.ViewModel  = "models/weapons/cstrike/c_pist_glock18.mdl"
-SWEP.WorldModel = "models/weapons/w_pist_glock18.mdl"
+SWEP.UseHands					= BASE.UseHands
+SWEP.ViewModelFlip				= BASE.ViewModelFlip
+SWEP.ViewModelFOV				= BASE.ViewModelFOV
+SWEP.ViewModel  				= "models/weapons/cstrike/c_pist_glock18.mdl"
+SWEP.WorldModel 				= "models/weapons/w_pist_glock18.mdl"
 
-SWEP.Primary.Sound = Sound( "Weapon_Glock.Single" )
-SWEP.IronSightsPos = Vector( -5.79, -3.9982, 2.8289 )
+SWEP.Primary.Sound 				= BASE.Sound
+SWEP.IronSightsPos 				= BASE.IronSightsPos
 
-SWEP.HeadshotMultiplier = 1.75
+SWEP.HeadshotMultiplier 		= BASE.HeadshotMultiplier
 
 -- WeaponSkins
 
@@ -53,11 +53,11 @@ function SWEP:SetupDataTables()
 end
 
 
-local OG
+local ply
 
 function SWEP:ViewModelDrawn( ViewModel )
 
-	OG = self.Owner
+	ply = self.Owner
 	self:SetViewModel( ViewModel )
 	self:PaintMaterial( ViewModel )
 	
@@ -65,8 +65,8 @@ end
 
 function SWEP:PaintMaterial( vm )
 
-	if ( CLIENT ) and IsValid( vm ) then
-		local Mat = ( self.Skin or "" )
+	if CLIENT and IsValid( vm ) then
+		local Mat = self.Skin or ""
 		if IsValid( vm ) and vm:GetModel() == self.ViewModel then
 			vm:SetMaterial( Mat )
 		end
@@ -83,8 +83,8 @@ end
 
 function SWEP:ClearMaterial()
 
-	if IsValid( OG ) then
-		local Viewmodel = OG:GetViewModel()
+	if IsValid( ply ) then
+		local Viewmodel = ply:GetViewModel()
 		if IsValid( Viewmodel ) then
 			Viewmodel:SetMaterial( "" )
 		end

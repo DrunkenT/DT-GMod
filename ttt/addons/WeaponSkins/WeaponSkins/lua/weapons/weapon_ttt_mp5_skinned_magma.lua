@@ -1,47 +1,45 @@
 
 AddCSLuaFile()
 
-local BASE						= weapons.GetStored( "weapon_ttt_m16" )
+local BASE = weapons.GetStored( "weapon_ttt_mp5" )
 
-SWEP.HoldType					= BASE.HoldType
+SWEP.HoldType							= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName				= BASE.PrintName .. " | Stingray"
-   SWEP.Slot					= BASE.Slot
-   SWEP.Icon 					= BASE.Icon
-   SWEP.IconLetter 				= BASE.IconLetter
+   SWEP.PrintName						= BASE.PrintName .. " | Magma"
+   SWEP.Slot							= BASE.Slot
+   SWEP.Icon 							= BASE.Icon
+
 end
 
-SWEP.Base						= BASE.Base
-SWEP.Spawnable 					= true
-SWEP.Skin 						= "models/props/de_nuke/fuel_cask"
+SWEP.Base								= BASE.Base
+SWEP.Spawnable 							= true
+SWEP.Skin 								= "models/xqm/lightlinesred_tool"
 
-SWEP.Kind 						= BASE.Kind
-SWEP.WeaponID					= BASE.WeaponID
+SWEP.Kind 								= BASE.Kind
 
-SWEP.Primary.Delay				= BASE.Primary.Delay
-SWEP.Primary.Recoil				= BASE.Primary.Recoil
-SWEP.Primary.Automatic 			= BASE.Primary.Automatic
-SWEP.Primary.Ammo 				= BASE.Primary.Ammo
-SWEP.Primary.Damage 			= BASE.Primary.Damage
-SWEP.Primary.Cone 				= BASE.Primary.Cone
-SWEP.Primary.ClipSize 			= BASE.Primary.ClipSize
-SWEP.Primary.ClipMax 			= BASE.Primary.ClipMax
-SWEP.Primary.DefaultClip 		= BASE.Primary.DefaultClip
-SWEP.AutoSpawnable      		= false
-SWEP.AmmoEnt 					= BASE.AmmoEnt
+SWEP.Primary.Delay						= BASE.Primary.Delay
+SWEP.Primary.Recoil						= BASE.Primary.Recoil
+SWEP.Primary.Automatic 					= BASE.Primary.Automatic
+SWEP.Primary.Ammo 						= BASE.Primary.Ammo
+SWEP.Primary.Damage 					= BASE.Primary.Damage
+SWEP.Primary.Cone 						= BASE.Primary.Cone
+SWEP.Primary.ClipSize 					= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 					= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip 				= BASE.Primary.DefaultClip
+SWEP.AutoSpawnable      				= false
+SWEP.AmmoEnt 							= BASE.AmmoEnt
 
-SWEP.UseHands					= BASE.UseHands
-SWEP.ViewModelFlip				= BASE.ViewModelFlip
-SWEP.ViewModelFOV				= BASE.ViewModelFOV
-SWEP.ViewModel					= "models/weapons/cstrike/c_rif_m4a1.mdl"
-SWEP.WorldModel					= "models/weapons/w_rif_m4a1.mdl"
+SWEP.UseHands							= BASE.UseHands
+SWEP.ViewModelFlip						= BASE.ViewModelFlip
+SWEP.ViewModelFOV						= BASE.ViewModelFOV
+SWEP.ViewModel							= "models/weapons/cstrike/c_smg_mp5.mdl"
+SWEP.WorldModel							= "models/weapons/w_smg_mp5.mdl"
 
-SWEP.Primary.Sound				= BASE.Primary.Sound
+SWEP.Primary.Sound 						= BASE.Primary.Sound
 
-SWEP.IronSightsPos				= BASE.IronSightsPos
-SWEP.IronSightsAng				= BASE.IronSightsAng
-
+SWEP.IronSightsPos 						= BASE.IronSightsPos
+SWEP.IronSightsAng						= BASE.IronSightsAng
 
 -- WeaponSkins
 
@@ -152,6 +150,3 @@ function SWEP:Holster()
    self:SetZoom(false)
    return true
 end
-
-
-

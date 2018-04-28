@@ -1,48 +1,46 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType			= "ar2"
+local BASE 					= weapons.GetStored( "weapon_ttt_aug" )
+
+SWEP.HoldType				= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName			= "Steyr AUG | Digital Red"
-   SWEP.Slot				= 2
-
-   SWEP.Icon = "vgui/ttt/icon_aug"
-
+	SWEP.PrintName			= BASE.PrintName .. " | Digital Red"
+	SWEP.Slot				= BASE.Slot
+	SWEP.Icon 				= BASE.Icon
 end
 
-SWEP.Base				= "weapon_tttbase"
-SWEP.Spawnable = true
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_aug_red"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_aug_red"
+SWEP.Base					= BASE.Base
+SWEP.Spawnable 				= true
+SWEP.Skin 					= "drunkent/tttweaponskins/v_models/skin_aug_red"
+SWEP.World 					= "drunkent/tttweaponskins/w_models/w_skin_aug_red"
 
-SWEP.Kind = WEAPON_HEAVY
+SWEP.Kind 					= BASE.Kind
 
+SWEP.Primary.Delay			= BASE.Primary.Delay
+SWEP.Primary.Recoil			= BASE.Primary.Recoil
+SWEP.Primary.Automatic 		= BASE.Primary.Automatic
+SWEP.Primary.Ammo 			= BASE.Primary.Ammo
+SWEP.Primary.Damage 		= BASE.Primary.Damage
+SWEP.Primary.Cone 			= BASE.Primary.Cone
+SWEP.Primary.ClipSize 		= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 		= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip 	= BASE.Primary.DefaultClip
+SWEP.AutoSpawnable      	= false
+SWEP.AmmoEnt 				= BASE.AmmoEnt
 
-local main = weapons.Get( "weapon_ttt_aug" )
-SWEP.Primary.Delay			= main.Primary.Delay
-SWEP.Primary.Recoil			= main.Primary.Recoil
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.AutoSpawnable      = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.UseHands				= BASE.UseHands
+SWEP.ViewModelFlip			= BASE.ViewModelFlip
+SWEP.ViewModelFOV			= BASE.ViewModelFOV
+SWEP.ViewModel				= "models/weapons/cstrike/c_rif_aug.mdl"
+SWEP.WorldModel				= "models/weapons/w_rif_aug.mdl"
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 64
-SWEP.ViewModel			= "models/weapons/cstrike/c_rif_aug.mdl"
-SWEP.WorldModel			= "models/weapons/w_rif_aug.mdl"
+SWEP.Primary.Sound 			= BASE.Primary.Sound
+SWEP.Secondary.Sound 		= BASE.Secondary.Sound
 
-SWEP.Primary.Sound = Sound( "Weapon_AUG.Single" )
-SWEP.Secondary.Sound = Sound( "Default.Zoom" )
-
-SWEP.IronSightsPos = Vector (5, -1.4358, 1.9033)
-SWEP.IronSightsAng = Vector (1.3976, 0.4462, 0)
+SWEP.IronSightsPos 			= BASE.IronSightsPos
+SWEP.IronSightsAng 			= BASE.IronSightsAng
 
 
 -- WeaponSkins
@@ -51,47 +49,47 @@ function SWEP:SetupDataTables()
 
 	self:NetworkVar( "Entity", 2, "ViewModel" )
 	self:NetworkVar( "Bool", 3, "Ironsights" )
-	
+
 end
 
 
-local OG
+local ply
 
 function SWEP:ViewModelDrawn( ViewModel )
 
-	OG = self.Owner
+	ply = self.Owner
 	self:SetViewModel( ViewModel )
 	self:PaintMaterial( ViewModel )
-	
+
 end
 
 function SWEP:PaintMaterial( vm )
 
-	if ( CLIENT ) and IsValid( vm ) then
-		local Mat = ( self.Skin or "" )
+	if CLIENT and IsValid( vm ) then
+		local Mat = self.Skin or ""
 		if IsValid( vm ) and vm:GetModel() == self.ViewModel then
 			vm:SetMaterial( Mat )
 		end
 	end
-	
+
 end
 
 function SWEP:DrawWorldModel()
 
 	self:SetMaterial( self.World or "" )
 	self:DrawModel()
-	
+
 end
 
 function SWEP:ClearMaterial()
 
-	if IsValid( OG ) then
-		local Viewmodel = OG:GetViewModel()
+	if IsValid( ply ) then
+		local Viewmodel = ply:GetViewModel()
 		if IsValid( Viewmodel ) then
 			Viewmodel:SetMaterial( "" )
 		end
 	end
-  
+
 end
 
 function SWEP:OwnerChanged()

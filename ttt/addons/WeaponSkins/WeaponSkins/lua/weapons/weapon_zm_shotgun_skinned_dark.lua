@@ -1,50 +1,50 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType			= "shotgun"
+local BASE = weapons.GetStored( "weapon_zm_shotgun" )
+
+SWEP.HoldType					= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName = "XM1014 | Dark"
-
-   SWEP.Slot = 2
-   SWEP.Icon = "vgui/ttt/icon_shotgun"
-   SWEP.IconLetter = "B"
+   SWEP.PrintName 				= BASE.PrintName .. " | Dark"
+   SWEP.Slot 					= BASE.Slot
+   SWEP.Icon 					= BASE.Icon
+   SWEP.IconLetter 				= BASE.IconLetter
 end
 
 
-SWEP.Base				= "weapon_tttbase"
-SWEP.Spawnable = true
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_xm1014_dark"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_xm1014_dark"
+SWEP.Base						= BASE.Base
+SWEP.Spawnable 					= true
+SWEP.Skin 						= "drunkent/tttweaponskins/v_models/skin_xm1014_dark"
+SWEP.World 						= "drunkent/tttweaponskins/w_models/w_skin_xm1014_dark"
 
-SWEP.Kind = WEAPON_HEAVY
-SWEP.WeaponID = AMMO_SHOTGUN
+SWEP.Kind 						= BASE.Kind
+SWEP.WeaponID 					= BASE.WeaponID
 
-local main = weapons.Get( "weapon_zm_shotgun" )
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.Delay = main.Primary.Delay
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.NumShots = main.Primary.NumShots
-SWEP.AutoSpawnable      = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Ammo 				= BASE.Primary.Ammo
+SWEP.Primary.Damage 			= BASE.Primary.Damage
+SWEP.Primary.Cone 				= BASE.Primary.Cone
+SWEP.Primary.Delay 				= BASE.Primary.Delay
+SWEP.Primary.ClipSize 			= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 			= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip 		= BASE.Primary.DefaultClip
+SWEP.Primary.Automatic 			= BASE.Primary.Automatic
+SWEP.Primary.NumShots 			= BASE.Primary.NumShots
+SWEP.AutoSpawnable     		 	= false
+SWEP.AmmoEnt 					= BASE.AmmoEnt
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 54
-SWEP.ViewModel			= "models/weapons/cstrike/c_shot_xm1014.mdl"
-SWEP.WorldModel			= "models/weapons/w_shot_xm1014.mdl"
-SWEP.Primary.Sound			= Sound( "Weapon_XM1014.Single" )
-SWEP.Primary.Recoil			= 7
+SWEP.UseHands					= BASE.UseHands
+SWEP.ViewModelFlip				= BASE.ViewModelFlip
+SWEP.ViewModelFOV				= BASE.ViewModelFOV
+SWEP.ViewModel					= "models/weapons/cstrike/c_shot_xm1014.mdl"
+SWEP.WorldModel					= "models/weapons/w_shot_xm1014.mdl"
+SWEP.Primary.Sound				= BASE.Primary.Sound
+SWEP.Primary.Recoil				= BASE.Primary.Recoil
 
-SWEP.IronSightsPos = Vector(-6.881, -9.214, 2.66)
-SWEP.IronSightsAng = Vector(-0.101, -0.7, -0.201)
+SWEP.IronSightsPos 				= BASE.IronSightsPos
+SWEP.IronSightsAng 				= BASE.IronSightsAng
 
-SWEP.reloadtimer = 0
+SWEP.reloadtimer 				= 0
 
 function SWEP:SetupDataTables()
    self:DTVar("Bool", 0, "reloading")

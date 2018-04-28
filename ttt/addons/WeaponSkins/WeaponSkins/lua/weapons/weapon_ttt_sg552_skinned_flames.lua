@@ -1,46 +1,46 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType			= "ar2"
+local BASE = weapons.GetStored( "weapon_ttt_sg552" )
+
+SWEP.HoldType						= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName			= "SG552 | Flames"
-   SWEP.Slot				= 2
-
-   SWEP.Icon = "vgui/ttt/icon_sg552"
+   SWEP.PrintName					= BASE.PrintName .. " | Flames"
+   SWEP.Slot						= BASE.Slot
+   SWEP.Icon 						= BASE.Icon
 
 end
 
-SWEP.Base				= "weapon_tttbase"
-SWEP.Spawnable = true
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_sg552_flames"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_sg552_flames"
+SWEP.Base							= BASE.Base
+SWEP.Spawnable 						= true
+SWEP.Skin 							= "drunkent/tttweaponskins/v_models/skin_sg552_flames"
+SWEP.World 							= "drunkent/tttweaponskins/w_models/w_skin_sg552_flames"
 
-SWEP.Kind = WEAPON_HEAVY
+SWEP.Kind 							= BASE.Kind
 
-local main = weapons.Get( "weapon_ttt_sg552" )
-SWEP.Primary.Delay			= main.Primary.Delay
-SWEP.Primary.Recoil			= main.Primary.Recoil
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.AutoSpawnable      = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Delay					= BASE.Primary.Delay
+SWEP.Primary.Recoil					= BASE.Primary.Recoil
+SWEP.Primary.Automatic 				= BASE.Primary.Automatic
+SWEP.Primary.Ammo 					= BASE.Primary.Ammo
+SWEP.Primary.Damage 				= BASE.Primary.Damage
+SWEP.Primary.Cone 					= BASE.Primary.Cone
+SWEP.Primary.ClipSize 				= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 				= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip 			= BASE.Primary.DefaultClip
+SWEP.AutoSpawnable      			= false
+SWEP.AmmoEnt 						= BASE.AmmoEnt
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 64
-SWEP.ViewModel			= "models/weapons/cstrike/c_rif_sg552.mdl"
-SWEP.WorldModel			= "models/weapons/w_rif_sg552.mdl"
+SWEP.UseHands						= BASE.UseHands
+SWEP.ViewModelFlip					= BASE.ViewModelFlip
+SWEP.ViewModelFOV					= BASE.ViewModelFOV
+SWEP.ViewModel						= "models/weapons/cstrike/c_rif_sg552.mdl"
+SWEP.WorldModel						= "models/weapons/w_rif_sg552.mdl"
 
-SWEP.Primary.Sound = Sound( "Weapon_SG552.Single" )
+SWEP.Primary.Sound 					= BASE.Primary.Sound
 
-SWEP.IronSightsPos = Vector (-4.6856, 0, 1.144)
-SWEP.IronSightsAng = Vector (0, 0, -1.2628)
+SWEP.IronSightsPos 					= BASE.IronSightsPos
+SWEP.IronSightsAng 					= BASE.IronSightsAng
 
 -- WeaponSkins
 

@@ -5,15 +5,14 @@ local BASE = weapons.GetStored( "weapon_ttt_ak47" )
 SWEP.HoldType				= BASE.HoldType
 
 if CLIENT then
-	SWEP.PrintName			= BASE.PrintName .. " | Digital Red"
+	SWEP.PrintName			= BASE.PrintName .. " | Nightmare"
 	SWEP.Slot				= BASE.Slot
 	SWEP.Icon 				= BASE.Icon
 end
 
 SWEP.Base					= BASE.Base
 SWEP.Spawnable 				= true
-SWEP.Skin 					= "drunkent/tttweaponskins/v_models/skin_ak47_red"
-SWEP.World 					= "drunkent/tttweaponskins/w_models/w_skin_ak47_red"
+SWEP.Skin 					= "phoenix_storms/black_chrome"
 
 SWEP.Kind					= BASE.Kind
 
@@ -73,7 +72,7 @@ end
 
 function SWEP:DrawWorldModel()
 
-	self:SetMaterial( self.World or "" )
+	self:SetMaterial( self.Skin or "" )
 	self:DrawModel()
 
 end

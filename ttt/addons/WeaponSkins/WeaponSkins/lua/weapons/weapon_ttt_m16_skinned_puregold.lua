@@ -6,7 +6,7 @@ local BASE						= weapons.GetStored( "weapon_ttt_m16" )
 SWEP.HoldType					= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName				= BASE.PrintName .. " | Stingray"
+   SWEP.PrintName				= BASE.PrintName .. " | Pure Gold"
    SWEP.Slot					= BASE.Slot
    SWEP.Icon 					= BASE.Icon
    SWEP.IconLetter 				= BASE.IconLetter
@@ -14,7 +14,7 @@ end
 
 SWEP.Base						= BASE.Base
 SWEP.Spawnable 					= true
-SWEP.Skin 						= "models/props/de_nuke/fuel_cask"
+SWEP.Skin 						= "models/player/shared/gold_player"
 
 SWEP.Kind 						= BASE.Kind
 SWEP.WeaponID					= BASE.WeaponID

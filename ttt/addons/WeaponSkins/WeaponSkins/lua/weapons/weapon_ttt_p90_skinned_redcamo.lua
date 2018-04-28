@@ -1,47 +1,46 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType			= "ar2"
+local BASE = weapons.GetStored( "weapon_ttt_p90" )
+
+SWEP.HoldType					= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName			= "P90 | Red Camo"
-   SWEP.Slot				= 2
-
-   SWEP.Icon = "vgui/ttt/icon_p90"
-
+   SWEP.PrintName				= BASE.PrintName .. " | Red Camo"
+   SWEP.Slot					= BASE.Slot
+   SWEP.Icon 					= BASE.Icon
 end
 
-SWEP.Base				= "weapon_tttbase"
-SWEP.Spawnable = true
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_p90_red"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_p90_red"
+SWEP.Base						= BASE.Base
+SWEP.Spawnable 					= true
+SWEP.Skin 						= "drunkent/tttweaponskins/v_models/skin_p90_red"
+SWEP.World 						= "drunkent/tttweaponskins/w_models/w_skin_p90_red"
 
-SWEP.Kind = WEAPON_HEAVY
+SWEP.Kind 						= BASE.Kind
 
-local main = weapons.Get( "weapon_ttt_p90" )
-SWEP.Primary.Delay			= main.Primary.Delay
-SWEP.Primary.Recoil			= main.Primary.Recoil
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.AutoSpawnable      = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Delay				= BASE.Primary.Delay
+SWEP.Primary.Recoil				= BASE.Primary.Recoil
+SWEP.Primary.Automatic 			= BASE.Primary.Automatic
+SWEP.Primary.Ammo 				= BASE.Primary.Ammo
+SWEP.Primary.Damage 			= BASE.Primary.Damage
+SWEP.Primary.Cone 				= BASE.Primary.Cone
+SWEP.Primary.ClipSize 			= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 			= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip 		= BASE.Primary.DefaultClip
+SWEP.AutoSpawnable      		= false
+SWEP.AmmoEnt 					= BASE.AmmoEnt
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 64
-SWEP.ViewModel			= "models/weapons/cstrike/c_smg_p90.mdl"
-SWEP.WorldModel			= "models/weapons/w_smg_p90.mdl"
+SWEP.UseHands					= BASE.UseHands
+SWEP.ViewModelFlip				= BASE.ViewModelFlip
+SWEP.ViewModelFOV				= BASE.ViewModelFOV
+SWEP.ViewModel					= "models/weapons/cstrike/c_smg_p90.mdl"
+SWEP.WorldModel					= "models/weapons/w_smg_p90.mdl"
 
-SWEP.Primary.Sound = Sound( "Weapon_P90.Single" )
-SWEP.Secondary.Sound = Sound( "Default.Zoom" )
+SWEP.Primary.Sound 				= BASE.Primary.Sound
+SWEP.Secondary.Sound 			= BASE.Secondary.Sound
 
-SWEP.IronSightsPos      = Vector( 500, -1005, -200 )
-SWEP.IronSightsAng      = Vector( 200.6, 100.37, 300.5 )
+SWEP.IronSightsPos      		= BASE.IronSightsPos
+SWEP.IronSightsAng      		= BASE.IronSightsAng
 
 -- WeaponSkins
 

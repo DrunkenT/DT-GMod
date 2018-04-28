@@ -1,52 +1,52 @@
 
 AddCSLuaFile()
 
-SWEP.HoldType			= "crossbow"
+local BASE = weapons.GetStored( "weapon_zm_sledge" )
+
+SWEP.HoldType					= BASE.HoldType
 
 
 if CLIENT then
-   SWEP.PrintName			= "H.U.G.E-249 | Blue"
-   SWEP.Slot				= 2
+   SWEP.PrintName			= BASE.PrintName .. " | Blue"
+   SWEP.Slot				= BASE.Slot
+   SWEP.ViewModelFlip		= BASE.ViewModelFlip
 
-   SWEP.ViewModelFlip		= false
-
-   SWEP.Icon = "vgui/ttt/icon_m249"
-   SWEP.IconLetter = "z"
+   SWEP.Icon 				= BASE.Icon
+   SWEP.IconLetter 			= BASE.IconLetter
 end
 
 
-SWEP.Base				= "weapon_tttbase"
+SWEP.Base					= BASE.Base
 
-SWEP.Spawnable = true
-SWEP.Skin = "drunkent/tttweaponskins/v_models/skin_m249_blue"
-SWEP.World = "drunkent/tttweaponskins/w_models/w_skin_m249_blue"
+SWEP.Spawnable 				= true
+SWEP.Skin 					= "drunkent/tttweaponskins/v_models/skin_m249_blue"
+SWEP.World 					= "drunkent/tttweaponskins/w_models/w_skin_m249_blue"
 
-SWEP.Kind = WEAPON_HEAVY
-SWEP.WeaponID = AMMO_M249
+SWEP.Kind 					= BASE.Kind
+SWEP.WeaponID 				= BASE.WeaponID
 
-local main = weapons.Get( "weapon_zm_sledge" )
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Delay = main.Primary.Delay
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip	= main.Primary.DefaultClip
-SWEP.Primary.Automatic		= main.Primary.Automatic
-SWEP.Primary.Ammo			= main.Primary.Ammo
-SWEP.AutoSpawnable      = false
-SWEP.Primary.Recoil			= main.Primary.Recoil
-SWEP.Primary.Sound			= Sound("Weapon_m249.Single")
+SWEP.Primary.Damage 		= BASE.Primary.Damage
+SWEP.Primary.Delay 			= BASE.Primary.Delay
+SWEP.Primary.Cone 			= BASE.Primary.Cone
+SWEP.Primary.ClipSize 		= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 		= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip	= BASE.Primary.DefaultClip
+SWEP.Primary.Automatic		= BASE.Primary.Automatic
+SWEP.Primary.Ammo			= BASE.Primary.Ammo
+SWEP.AutoSpawnable      	= false
+SWEP.Primary.Recoil			= BASE.Primary.Recoil
+SWEP.Primary.Sound			= BASE.Primary.Sound
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 54
-SWEP.ViewModel			= "models/weapons/cstrike/c_mach_m249para.mdl"
-SWEP.WorldModel			= "models/weapons/w_mach_m249para.mdl"
+SWEP.UseHands				= BASE.UseHands
+SWEP.ViewModelFlip			= BASE.ViewModelFlip
+SWEP.ViewModelFOV			= BASE.ViewModelFOV
+SWEP.ViewModel				= "models/weapons/cstrike/c_mach_m249para.mdl"
+SWEP.WorldModel				= "models/weapons/w_mach_m249para.mdl"
 
-SWEP.HeadshotMultiplier = 2.2
+SWEP.HeadshotMultiplier 	= BASE.HeadshotMultiplier
 
-SWEP.IronSightsPos = Vector(-5.96, -5.119, 2.349)
-SWEP.IronSightsAng = Vector(0, 0, 0)
+SWEP.IronSightsPos 			= BASE.IronSightsPos
+SWEP.IronSightsAng 			= BASE.IronSightsAng
 
 -- WeaponSkins
 

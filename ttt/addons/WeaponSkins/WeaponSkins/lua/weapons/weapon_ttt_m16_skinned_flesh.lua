@@ -1,52 +1,46 @@
+
 AddCSLuaFile()
 
---[[
+local BASE						= weapons.GetStored( "weapon_ttt_m16" )
 
-	WeaponSkins for The Drunken T's Server
-		created by bamq
-		
-		]]--
-
-SWEP.HoldType			= "ar2"
+SWEP.HoldType					= BASE.HoldType
 
 if CLIENT then
-   SWEP.PrintName			= "M16 | Flesh"
-   SWEP.Slot				= 2
-
-   SWEP.Icon = "vgui/ttt/icon_m16"
-   SWEP.IconLetter = "w"
+   SWEP.PrintName				= BASE.PrintName .. " | Flesh"
+   SWEP.Slot					= BASE.Slot
+   SWEP.Icon 					= BASE.Icon
+   SWEP.IconLetter 				= BASE.IconLetter
 end
 
-SWEP.Base				= "weapon_tttbase"
-SWEP.Spawnable = true
-SWEP.Skin = "models/flesh"
+SWEP.Base						= BASE.Base
+SWEP.Spawnable 					= true
+SWEP.Skin 						= "models/flesh"
 
-SWEP.Kind = WEAPON_HEAVY
-SWEP.WeaponID = AMMO_M16
+SWEP.Kind 						= BASE.Kind
+SWEP.WeaponID					= BASE.WeaponID
 
-local main = weapons.Get( "weapon_ttt_m16" )
-SWEP.Primary.Delay			= main.Primary.Delay
-SWEP.Primary.Recoil			= main.Primary.Recoil
-SWEP.Primary.Automatic = main.Primary.Automatic
-SWEP.Primary.Ammo = main.Primary.Ammo
-SWEP.Primary.Damage = main.Primary.Damage
-SWEP.Primary.Cone = main.Primary.Cone
-SWEP.Primary.ClipSize = main.Primary.ClipSize
-SWEP.Primary.ClipMax = main.Primary.ClipMax
-SWEP.Primary.DefaultClip = main.Primary.DefaultClip
-SWEP.AutoSpawnable      = false
-SWEP.AmmoEnt = main.AmmoEnt
+SWEP.Primary.Delay				= BASE.Primary.Delay
+SWEP.Primary.Recoil				= BASE.Primary.Recoil
+SWEP.Primary.Automatic 			= BASE.Primary.Automatic
+SWEP.Primary.Ammo 				= BASE.Primary.Ammo
+SWEP.Primary.Damage 			= BASE.Primary.Damage
+SWEP.Primary.Cone 				= BASE.Primary.Cone
+SWEP.Primary.ClipSize 			= BASE.Primary.ClipSize
+SWEP.Primary.ClipMax 			= BASE.Primary.ClipMax
+SWEP.Primary.DefaultClip 		= BASE.Primary.DefaultClip
+SWEP.AutoSpawnable      		= false
+SWEP.AmmoEnt 					= BASE.AmmoEnt
 
-SWEP.UseHands			= true
-SWEP.ViewModelFlip		= false
-SWEP.ViewModelFOV		= 64
-SWEP.ViewModel			= "models/weapons/cstrike/c_rif_m4a1.mdl"
-SWEP.WorldModel			= "models/weapons/w_rif_m4a1.mdl"
+SWEP.UseHands					= BASE.UseHands
+SWEP.ViewModelFlip				= BASE.ViewModelFlip
+SWEP.ViewModelFOV				= BASE.ViewModelFOV
+SWEP.ViewModel					= "models/weapons/cstrike/c_rif_m4a1.mdl"
+SWEP.WorldModel					= "models/weapons/w_rif_m4a1.mdl"
 
-SWEP.Primary.Sound = Sound( "Weapon_M4A1.Single" )
+SWEP.Primary.Sound				= BASE.Primary.Sound
 
-SWEP.IronSightsPos = Vector(-7.58, -9.2, 0.55)
-SWEP.IronSightsAng = Vector(2.599, -1.3, -3.6)
+SWEP.IronSightsPos				= BASE.IronSightsPos
+SWEP.IronSightsAng				= BASE.IronSightsAng
 
 
 -- WeaponSkins
@@ -59,11 +53,11 @@ function SWEP:SetupDataTables()
 end
 
 
-local OG
+local ply
 
 function SWEP:ViewModelDrawn( ViewModel )
 
-	OG = self.Owner
+	ply = self.Owner
 	self:SetViewModel( ViewModel )
 	self:PaintMaterial( ViewModel )
 	
@@ -71,8 +65,8 @@ end
 
 function SWEP:PaintMaterial( vm )
 
-	if ( CLIENT ) and IsValid( vm ) then
-		local Mat = ( self.Skin or "" )
+	if CLIENT and IsValid( vm ) then
+		local Mat = self.Skin or ""
 		if IsValid( vm ) and vm:GetModel() == self.ViewModel then
 			vm:SetMaterial( Mat )
 		end
@@ -89,8 +83,8 @@ end
 
 function SWEP:ClearMaterial()
 
-	if IsValid( OG ) then
-		local Viewmodel = OG:GetViewModel()
+	if IsValid( ply ) then
+		local Viewmodel = ply:GetViewModel()
 		if IsValid( Viewmodel ) then
 			Viewmodel:SetMaterial( "" )
 		end
